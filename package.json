@@ -8,20 +8,25 @@
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "lodash": "^4.17.11",
+    "mysql2": "^1.6.5",
     "nodemon": "^1.19.1",
-    "sequelize": "^5.8.10"
+    "sequelize": "^5.8.10",
+    "sequelize-cli": "^5.5.0"
   },
   "devDependencies": {
     "@babel/core": "^7.4.5",
     "@babel/node": "^7.4.5",
     "@babel/preset-env": "^7.4.5",
+    "@babel/register": "^7.4.4",
     "eslint": "^5.16.0",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-plugin-import": "^2.17.3"
   },
   "scripts": {
     "start": "nodemon --exec babel-node ./server.js",
-    "eslintFix": "eslint --fix ."
+    "eslintFix": "eslint --fix .",
+    "dbcreate": "npx sequelize-cli db:create",
+    "dbdrop": "npx sequelize-cli db:drop"
   },
   "repository": {
     "type": "git",

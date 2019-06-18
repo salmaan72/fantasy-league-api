@@ -1,5 +1,5 @@
 import server from './src';
 import config from './config';
 
-server.create(config.default);
+server.create(config);
 server.start();

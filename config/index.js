@@ -1,10 +1,14 @@
-import _ from 'lodash'
-const
-    env = process.env.NODE_ENV || 'development',
-    envConfig = require('./' + env);
+import defaultConfig from './defaults';
 
-let defaultConfig = {
-    env: env
-};
+let envConfig;
+const env = process.env.NODE_ENV || 'development';
+if(env === 'development') {
+    envConfig = require('./development')['default'];
+} else if (env === 'production') {
+    envConfig = require('./production')['default'];
+}
 
-export default _.merge(defaultConfig, envConfig);
+export default {
+    ...envConfig,
+    ...defaultConfig,
+}
