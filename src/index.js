@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import routes from './routes';
+import { globalRouter } from './routes';
 
 export default (function() {
     let server = express(),
@@ -17,7 +17,7 @@ export default (function() {
         // Returns middleware that parses json
         server.use(bodyParser.json());
 
-        server.use('/api', routes.globalRoutes);
+        server.use('/api', globalRouter);
     };
 
     start = function() {

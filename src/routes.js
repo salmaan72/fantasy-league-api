@@ -1,4 +1,6 @@
-import routes from './app/dummy/routes';
+import { dummyRoutes } from './app/dummy/routes';
+import { authRoutes } from './app/auth/routes';
+
 import express from 'express';
 const router = express.Router();
 
@@ -7,6 +9,8 @@ router.route('*').get(function (req, res, next) {
     return next();
 });
 
-router.use('/dummy', routes.dummyRoutes);
+router.use('/dummy', dummyRoutes);
 
-export default { globalRoutes: router };
+router.use('/auth', authRoutes);
+
+export { router as globalRouter };

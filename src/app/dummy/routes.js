@@ -5,4 +5,4 @@ import controller from './controller';
 
 router.route('/hello').get(controller.dummy);
 
-export default { dummyRoutes: router };
+export { router as dummyRoutes };
