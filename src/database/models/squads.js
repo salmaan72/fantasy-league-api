@@ -6,6 +6,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   squads.associate = function(models) {
     // associations can be defined here
+    squads.belongsTo(models.users, {foreignKey: 'userId'});
   };
   return squads;
 };

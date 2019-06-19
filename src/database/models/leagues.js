@@ -9,6 +9,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   leagues.associate = function(models) {
     // associations can be defined here
+    leagues.belongsTo(models.matches, {foreignKey: 'matchId'});
+    leagues.belongsTo(models.types, {foreignKey: 'typeId'});
   };
   return leagues;
 };

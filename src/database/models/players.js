@@ -10,6 +10,7 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   players.associate = function(models) {
     // associations can be defined here
+    players.belongsTo(models.matches, {foreignKey: 'matchId'});
   };
   return players;
 };
