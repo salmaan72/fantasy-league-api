@@ -1,8 +1,8 @@
 'use strict';
+import schema from '../schemas/squadplayers';
 module.exports = (sequelize, DataTypes) => {
   const squadplayers = sequelize.define('squadplayers', {
-    squadId: DataTypes.INTEGER,
-    playerId: DataTypes.INTEGER
+    ...schema(DataTypes)
   }, {});
   squadplayers.associate = function(models) {
     // associations can be defined here

@@ -1,10 +1,8 @@
 'use strict';
+import schema from '../schemas/matches';
 module.exports = (sequelize, DataTypes) => {
   const matches = sequelize.define('matches', {
-    status: DataTypes.ENUM,
-    teamId1: DataTypes.INTEGER,
-    teamId2: DataTypes.INTEGER,
-    matchType: DataTypes.ENUM
+    ...schema(DataTypes)
   }, {});
   matches.associate = function(models) {
     // associations can be defined here

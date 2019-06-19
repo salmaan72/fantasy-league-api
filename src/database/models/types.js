@@ -1,7 +1,8 @@
 'use strict';
+import schema from '../schemas/types';
 module.exports = (sequelize, DataTypes) => {
   const types = sequelize.define('types', {
-    type: DataTypes.STRING
+    ...schema(DataTypes)
   }, {});
   types.associate = function(models) {
     // associations can be defined here

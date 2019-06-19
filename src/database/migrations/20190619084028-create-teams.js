@@ -1,4 +1,5 @@
 'use strict';
+import schema from '../schemas/teams';
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('teams', {
@@ -8,12 +9,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
-        type: Sequelize.STRING
-      },
-      code: {
-        type: Sequelize.STRING
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -21,7 +16,8 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      }
+      },
+      ...schema(Sequelize)
     });
   },
   down: (queryInterface, Sequelize) => {

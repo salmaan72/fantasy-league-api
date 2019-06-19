@@ -1,12 +1,8 @@
 'use strict';
+import schema from '../schemas/players';
 module.exports = (sequelize, DataTypes) => {
   const players = sequelize.define('players', {
-    matchId: DataTypes.INTEGER,
-    name: DataTypes.STRING,
-    bat: DataTypes.BOOLEAN,
-    wk: DataTypes.BOOLEAN,
-    ar: DataTypes.BOOLEAN,
-    bowl: DataTypes.BOOLEAN
+    ...schema(DataTypes)
   }, {});
   players.associate = function(models) {
     // associations can be defined here

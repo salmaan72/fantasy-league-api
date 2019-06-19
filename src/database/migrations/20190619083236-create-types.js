@@ -1,4 +1,5 @@
 'use strict';
+import schema from '../schemas/types';
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('types', {
@@ -8,9 +9,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      type: {
-        type: Sequelize.STRING
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -18,7 +16,8 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      }
+      },
+      ...schema(Sequelize)
     });
   },
   down: (queryInterface, Sequelize) => {

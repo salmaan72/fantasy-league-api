@@ -1,4 +1,5 @@
 'use strict';
+import schema from '../schemas/players';
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('players', {
@@ -8,26 +9,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      matchId: {
-        type: Sequelize.INTEGER,
-        allowNull: false
-      },
-      name: {
-        type: Sequelize.STRING,
-        allowNull: false
-      },
-      bat: {
-        type: Sequelize.BOOLEAN
-      },
-      wk: {
-        type: Sequelize.BOOLEAN
-      },
-      ar: {
-        type: Sequelize.BOOLEAN
-      },
-      bowl: {
-        type: Sequelize.BOOLEAN
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -35,7 +16,8 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      }
+      },
+      ...schema(Sequelize)
     });
   },
   down: (queryInterface, Sequelize) => {

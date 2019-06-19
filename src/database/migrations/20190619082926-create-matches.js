@@ -1,4 +1,6 @@
 'use strict';
+
+import schema from '../schemas/matches';
 module.exports = {
   up: (queryInterface, Sequelize) => {
     return queryInterface.createTable('matches', {
@@ -8,24 +10,6 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      status: {
-        type: Sequelize.ENUM,
-        values: ['live', 'past', 'upcoming'],
-        allowNull: false,
-      },
-      teamId1: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
-      teamId2: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-      },
-      matchType: {
-        type: Sequelize.ENUM,
-        values: ['odi', 'test'],
-        allowNull: false,
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -33,7 +17,8 @@ module.exports = {
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE
-      }
+      },
+      ...schema(Sequelize)
     });
   },
   down: (queryInterface, Sequelize) => {
