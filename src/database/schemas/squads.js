@@ -6,6 +6,10 @@ export default function(Sequelize) {
           },
           name: {
             type: Sequelize.STRING
+          },
+          matchId: {
+            type: Sequelize.STRING,
+            allowNull: false
           }
     }
 };

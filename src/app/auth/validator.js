@@ -1,19 +1,18 @@
 import joi from '@hapi/joi';
 
-async function validator({ body }) {
-  const schema = {
-    username: joi.string(),
-    mobile: joi.string(),
-    password: joi.string()
-  };
+export default {
+  signupValidator: joi.object({
+    body: joi.object({
+      username: joi.string(),
+      mobile: joi.string(),
+      password: joi.string()
+    })
+  }),
 
-  const { err, value } = joi.validate(body, schema);
-
-  if (err) {
-    throw err;
-  }
-
-  return value;
+  loginValidator: joi.object({
+    body: joi.object({
+      mobile: joi.string(),
+      password: joi.string()
+    })
+  })
 }
-
-export { validator };
